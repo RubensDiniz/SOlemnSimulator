@@ -26,7 +26,7 @@ public:
     thread run(){
         CPU::get_cpu()->set_cores(processor_cores_number);
         batch_process_init(20);
-        scheduling_algorithm(0);
+        scheduling_algorithm(SHORTEST_JOB_FIRST);
 
         return kernel->run();
     }

@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/CPU.cpp" "C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/CPU.cpp.obj"
-  "C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Core.cpp" "C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Core.cpp.obj"
-  "C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Kernel.cpp" "C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Kernel.cpp.obj"
-  "C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Process.cpp" "C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Process.cpp.obj"
-  "C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Scheduler.cpp" "C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Scheduler.cpp.obj"
-  "C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Simulator.cpp" "C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Simulator.cpp.obj"
+  "/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/CPU.cpp" "/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/CPU.cpp.o"
+  "/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Core.cpp" "/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Core.cpp.o"
+  "/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Kernel.cpp" "/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Kernel.cpp.o"
+  "/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Process.cpp" "/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Process.cpp.o"
+  "/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Scheduler.cpp" "/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Scheduler.cpp.o"
+  "/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Simulator.cpp" "/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Simulator.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
