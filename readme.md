@@ -1,0 +1,1 @@
+![alt-text](https://media.wizards.com/images/magic/daily/td/td152_sol1.jpg)

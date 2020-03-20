@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/CPU.cpp
+vector
+-
+Core.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Core.cpp
+
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Core.cpp
+Process.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Process.cpp
+
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Kernel.cpp
+vector
+-
+Scheduler.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Scheduler.cpp
+Process.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Process.cpp
+
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Process.cpp
+vector
+-
+
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Scheduler.cpp
+vector
+-
+Process.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Process.cpp
+CPU.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/CPU.cpp
+
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Simulator.cpp
+Kernel.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Kernel.cpp
+
