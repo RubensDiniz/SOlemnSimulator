@@ -16,11 +16,10 @@ using namespace std;
 
 class Scheduler{
 protected:
-    list<Process*> ready_queue; // TODO ficou static por causa do SJF
+    list<Process*> ready_queue;
     static Scheduler* scheduler;
     void (*schedule)(list<Process*>);
     int operation_mode;
-    bool cancel_queued; //fazer
 
     void schedule_process(Core* core){
         if(ready_queue.empty())
@@ -28,15 +27,14 @@ protected:
             cout << "NAO HA PROCESSO NA READY QUEUE PARA ALOCAR NO CORE " << core->get_id() << endl;
             return;
         }
-            
 
         Process* p;
-        
+
         switch(operation_mode){
             case FIFO_SCHEDULER:
                 p = fifo_scheduler();
                 break;
-                
+
             case SHORTEST_JOB_FIRST:
                 p = shortest_job_first();
                 break;
@@ -81,8 +79,9 @@ protected:
     }
 
     Process* round_robin(){
-        // Coloca no final, mas vai ser checado em outro lugar (sinceramente idk)
-        return nullptr;
+        auto process = ready_queue.front();
+        ready_queue.pop_front();
+        return process;
     }
 
     //nome tbd
@@ -91,32 +90,28 @@ protected:
 
         int total_time = 0;
         auto processes = ready_queue;
-    	
+
         bool queue_has_process = !ready_queue.empty();
         int core_has_process = 0;
 
-    	while (queue_has_process || core_has_process > 0)
-    	{
+        while (queue_has_process || core_has_process > 0) {
             cout << "LOOP " << total_time << endl;
             core_has_process = 0;
-            for (auto core : cpu->get_cores())
-            {
-				if (core->has_process())
-				{
+
+            for (auto core : cpu->get_cores()){
+                if (core->has_process()){
                     auto p = core->get_process();
                     cout << "CORE " << core->get_id() << " TEM PROCESSO " << p->get_id() << endl;
 
-					if (p->get_state() == STATE_TERMINATED)
-					{
+                    if (core->should_deschedule()){
                         deschedule_process(core);
-					} else
-					{
+                        if (operation_mode == ROUND_ROBIN && p->get_state() != STATE_TERMINATED) insert_process(p);
+                    } else {
                         core->tick();
-					}
-				} else
-				{
+                    }
+                } else {
                     schedule_process(core);
-				}
+                }
 
                 if (core->has_process())
                     core_has_process++;
@@ -125,7 +120,7 @@ protected:
             std::this_thread::sleep_for(std::chrono::seconds(1));
             queue_has_process = !ready_queue.empty();
             total_time++;
-    	}
+        }
         cout << "FIM EM " << total_time << endl;
     }
 
@@ -133,7 +128,7 @@ public:
     void set_scheduling_algorithm(int mode){
         operation_mode = mode;
     }
-    
+
     thread run(){
         thread t(&Scheduler::main_process, this);
         return t;

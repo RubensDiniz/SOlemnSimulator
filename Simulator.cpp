@@ -10,13 +10,12 @@ protected:
     int quantum;
 
 public:
-    // TODO constructors etc
 
     Simulator(int cores, int qnt){
         processor_cores_number = cores;
         quantum = qnt;
         kernel = Kernel::get_instance();
-        CPU::get_cpu()->set_cores(cores);
+        //CPU::get_cpu()->set_cores(cores);
     }
 
     void scheduling_algorithm(int i){
@@ -24,9 +23,18 @@ public:
     }
 
     thread run(){
-        CPU::get_cpu()->set_cores(processor_cores_number);
+        //int algorithm = FIFO_SCHEDULER;
+        //int algorithm = SHORTEST_JOB_FIRST;
+        int algorithm = ROUND_ROBIN;
+
+        scheduling_algorithm(algorithm);
+        if (algorithm == ROUND_ROBIN){
+            CPU::get_cpu()->set_cores(processor_cores_number, quantum); // TODO alterar quantum na linha 63?
+        } else {
+            CPU::get_cpu()->set_cores(processor_cores_number);
+        }
+
         batch_process_init(20);
-        scheduling_algorithm(SHORTEST_JOB_FIRST);
 
         return kernel->run();
     }
@@ -38,7 +46,7 @@ public:
 
     void batch_process_init(int amount){
         int min = 5;
-        int max = 15;
+        int max = 20;
 
         for (int i = 0; i < amount; ++i) {
             create_random_process(min, max);
@@ -46,13 +54,12 @@ public:
     }
 };
 
-//perfeito
 CPU* CPU::cpu = nullptr;
 Kernel* Kernel::instance = nullptr;
 Scheduler* Scheduler::scheduler = nullptr;
 
 int main(){
-    Simulator* sim = new Simulator(4,0);
+    Simulator* sim = new Simulator(4,10);
 
     thread t = sim->run();
 

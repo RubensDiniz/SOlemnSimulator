@@ -6,33 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/CPU.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/CPU.cpp
 vector
 -
 list
 -
 Core.cpp
-/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Core.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Core.cpp
 
-/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Core.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Core.cpp
 Process.cpp
-/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Process.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Process.cpp
 
-/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Kernel.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Kernel.cpp
 vector
 -
 Scheduler.cpp
-/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Scheduler.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Scheduler.cpp
 Process.cpp
-/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Process.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Process.cpp
 
-/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Process.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Process.cpp
 vector
 -
 iostream
 -
 
-/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Scheduler.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Scheduler.cpp
 vector
 -
 list
@@ -42,13 +42,13 @@ thread
 chrono
 -
 Process.cpp
-/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Process.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Process.cpp
 CPU.cpp
-/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/CPU.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/CPU.cpp
 
-/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Simulator.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Simulator.cpp
 algorithm
 -
 Kernel.cpp
-/cygdrive/c/Users/samue/Downloads/SOlemnSimulator-master/Kernel.cpp
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/Kernel.cpp
 

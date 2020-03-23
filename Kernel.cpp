@@ -43,9 +43,6 @@ public:
 
     void kill_process(Process* p){
         p->terminate();
-        //int id = p->get_id();
-        //process_control_table[id] == nullptr; //não remover da lista pra não bugar a relação id = indíce
-        //delete p(?)
     }
 
     Process* get_process(int id){
