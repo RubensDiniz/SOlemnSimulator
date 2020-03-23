@@ -94,7 +94,8 @@ protected:
         bool queue_has_process = !ready_queue.empty();
         int core_has_process = 0;
 
-        while (queue_has_process || core_has_process > 0) {
+        //while (queue_has_process || core_has_process > 0) {
+    	while(true){ // while !stop_queued
             cout << "LOOP " << total_time << endl;
             core_has_process = 0;
 

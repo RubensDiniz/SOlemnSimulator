@@ -22,7 +22,7 @@ public:
     	Kernel::get_instance()->scheduling_algorithm(i);
     }
 
-    thread run(){
+    void run(){
         //int algorithm = FIFO_SCHEDULER;
         //int algorithm = SHORTEST_JOB_FIRST;
         int algorithm = ROUND_ROBIN;
@@ -36,7 +36,11 @@ public:
 
         batch_process_init(20);
 
-        return kernel->run();
+        auto add_proc = kernel->run();
+        auto run_proc = Scheduler::get_scheduler()->run();
+
+        add_proc.join();
+        run_proc.join();
     }
 
     void create_random_process(int min, int max){
@@ -61,9 +65,11 @@ Scheduler* Scheduler::scheduler = nullptr;
 int main(){
     Simulator* sim = new Simulator(4,10);
 
-    thread t = sim->run();
+    /*thread t = sim->run();
 
-    t.join();
+    t.join();*/
+
+    sim->run();
 
     cout << "End" << endl;
 }

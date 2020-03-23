@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\cmake-build-debug"
   ],
+  "SelectedNode": "\\Simulator.cpp",
   "PreviewInSolutionExplorer": false
 }

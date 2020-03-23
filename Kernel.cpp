@@ -23,12 +23,25 @@ public:
     }
 
     thread run(){
-    	for(auto process : process_control_table)
+    	/*for(auto process : process_control_table)
     	{
             Scheduler::get_scheduler()->insert_process(process);
     	}
 
-        return Scheduler::get_scheduler()->run();
+        return Scheduler::get_scheduler()->run();*/
+
+        int min = 5;
+        int max = 20;
+    	
+    	while(true) //while !stop_queued
+    	{
+            int time = rand() % (max-min) + min;
+            auto proc = create_process(time);
+            process_control_table.push_back(proc);
+            Scheduler::get_scheduler()->insert_process(proc);
+            cout << "KERNEL: PROCESSO CRIADO COM ID: " << proc->get_id() << ", TOTAL TIME: " << time << endl;
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+    	}
     }
 
     Process* create_process(int total_time){
