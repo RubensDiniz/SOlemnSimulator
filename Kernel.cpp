@@ -14,6 +14,20 @@ protected:
     	
     }
 
+    void create_process_thread(){
+        int min = 5;
+        int max = 20;
+
+        while(true) //while !stop_queued
+        {
+            int time = rand() % (max-min) + min;
+            auto proc = create_process(time);
+            Scheduler::get_scheduler()->insert_process(proc);
+            //cout << "KERNEL: PROCESSO CRIADO COM ID: " << proc->get_id() << ", TOTAL TIME: " << time << endl;
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+        }
+    }
+
 public:
 
     static Kernel* get_instance(){
@@ -30,18 +44,8 @@ public:
 
         return Scheduler::get_scheduler()->run();*/
 
-        int min = 5;
-        int max = 20;
-    	
-    	while(true) //while !stop_queued
-    	{
-            int time = rand() % (max-min) + min;
-            auto proc = create_process(time);
-            process_control_table.push_back(proc);
-            Scheduler::get_scheduler()->insert_process(proc);
-            cout << "KERNEL: PROCESSO CRIADO COM ID: " << proc->get_id() << ", TOTAL TIME: " << time << endl;
-            std::this_thread::sleep_for(std::chrono::seconds(1));
-    	}
+        thread t = thread(&Kernel::create_process_thread, this);
+        return t;
     }
 
     Process* create_process(int total_time){

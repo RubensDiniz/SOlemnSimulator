@@ -13,35 +13,47 @@
   <component name="ChangeListManager">
     <list default="true" id="74810eab-8f9f-4460-90a8-fbd36e0a9a62" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPU.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CPU.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Core.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Kernel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Kernel.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scheduler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Scheduler.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCCompiler.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCXXCompiler.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeRCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeRCCompiler.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/CPU.cpp.obj" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Core.cpp.obj" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Kernel.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Process.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Scheduler.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/Simulator.cpp.obj" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/cmake_clean.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/flags.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/linklibs.rsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/objects.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/objects1.rsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir/progress.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/SOlemnSimulator.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/SOlemnSimulator.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/SOlemnSimulator.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/SOlemnSimulator.exe" afterDir="false" />
@@ -128,6 +140,7 @@
       <workItem from="1584919434777" duration="4292000" />
       <workItem from="1584930059955" duration="1898000" />
       <workItem from="1584968408471" duration="5709000" />
+      <workItem from="1584998100181" duration="441000" />
     </task>
     <servers />
   </component>
@@ -147,35 +160,44 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1583355919460" />
+    <state x="616" y="134" key="CommitChangelistDialog2" timestamp="1584998378862">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="616" y="134" key="CommitChangelistDialog2/1982.75.1858.1080/62.0.1858.1080@62.0.1858.1080" timestamp="1584998378862" />
     <state x="726" y="220" key="FileChooserDialogImpl" timestamp="1584667651204">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="726" y="220" key="FileChooserDialogImpl/-1858.0.1858.1080/62.0.1858.1080@62.0.1858.1080" timestamp="1584667651204" />
     <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584034298101" />
-    <state width="1493" height="258" key="GridCell.Tab.0.bottom" timestamp="1584983972187">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1815" height="267" key="GridCell.Tab.0.bottom" timestamp="1584998511487">
+      <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state width="1815" height="627" key="GridCell.Tab.0.bottom/-1858.0.1858.1080/62.0.1858.1080@62.0.1858.1080" timestamp="1584667906301" />
     <state width="1493" height="258" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584983972187" />
-    <state width="1493" height="258" key="GridCell.Tab.0.center" timestamp="1584983972187">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1815" height="267" key="GridCell.Tab.0.bottom/1982.75.1858.1080/62.0.1858.1080@62.0.1858.1080" timestamp="1584998511487" />
+    <state width="1815" height="267" key="GridCell.Tab.0.center" timestamp="1584998511487">
+      <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state width="1815" height="627" key="GridCell.Tab.0.center/-1858.0.1858.1080/62.0.1858.1080@62.0.1858.1080" timestamp="1584667906301" />
     <state width="1493" height="258" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584983972187" />
-    <state width="1493" height="258" key="GridCell.Tab.0.left" timestamp="1584983972186">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1815" height="267" key="GridCell.Tab.0.center/1982.75.1858.1080/62.0.1858.1080@62.0.1858.1080" timestamp="1584998511487" />
+    <state width="1815" height="267" key="GridCell.Tab.0.left" timestamp="1584998511487">
+      <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state width="1815" height="627" key="GridCell.Tab.0.left/-1858.0.1858.1080/62.0.1858.1080@62.0.1858.1080" timestamp="1584667906301" />
     <state width="1493" height="258" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584983972186" />
-    <state width="1493" height="258" key="GridCell.Tab.0.right" timestamp="1584983972187">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1815" height="267" key="GridCell.Tab.0.left/1982.75.1858.1080/62.0.1858.1080@62.0.1858.1080" timestamp="1584998511487" />
+    <state width="1815" height="267" key="GridCell.Tab.0.right" timestamp="1584998511487">
+      <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state width="1815" height="627" key="GridCell.Tab.0.right/-1858.0.1858.1080/62.0.1858.1080@62.0.1858.1080" timestamp="1584667906301" />
     <state width="1493" height="258" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584983972187" />
-    <state x="465" y="238" width="606" height="344" key="com.intellij.ide.util.TipDialog" timestamp="1584968410005">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1815" height="267" key="GridCell.Tab.0.right/1982.75.1858.1080/62.0.1858.1080@62.0.1858.1080" timestamp="1584998511487" />
+    <state x="624" y="312" width="606" height="344" key="com.intellij.ide.util.TipDialog" timestamp="1584998100451">
+      <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="465" y="238" width="606" height="344" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584968410005" />
+    <state x="624" y="312" key="com.intellij.ide.util.TipDialog/1982.75.1858.1080/62.0.1858.1080@62.0.1858.1080" timestamp="1584998100451" />
     <state x="510" y="57" key="refactoring.ChangeSignatureDialog" timestamp="1583788149698">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -188,16 +210,5 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1583355377446" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Scheduler.cpp</url>
-          <line>15</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

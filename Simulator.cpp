@@ -34,7 +34,7 @@ public:
             CPU::get_cpu()->set_cores(processor_cores_number);
         }
 
-        batch_process_init(20);
+        //batch_process_init(20);
 
         auto add_proc = kernel->run();
         auto run_proc = Scheduler::get_scheduler()->run();

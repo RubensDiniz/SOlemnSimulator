@@ -1,12 +1,11 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/SOlemnSimulator.dir/CPU.cpp.obj"
-  "CMakeFiles/SOlemnSimulator.dir/Core.cpp.obj"
-  "CMakeFiles/SOlemnSimulator.dir/Kernel.cpp.obj"
-  "CMakeFiles/SOlemnSimulator.dir/Process.cpp.obj"
-  "CMakeFiles/SOlemnSimulator.dir/Scheduler.cpp.obj"
-  "CMakeFiles/SOlemnSimulator.dir/Simulator.cpp.obj"
+  "CMakeFiles/SOlemnSimulator.dir/CPU.cpp.o"
+  "CMakeFiles/SOlemnSimulator.dir/Core.cpp.o"
+  "CMakeFiles/SOlemnSimulator.dir/Kernel.cpp.o"
+  "CMakeFiles/SOlemnSimulator.dir/Process.cpp.o"
+  "CMakeFiles/SOlemnSimulator.dir/Scheduler.cpp.o"
+  "CMakeFiles/SOlemnSimulator.dir/Simulator.cpp.o"
   "SOlemnSimulator.exe"
-  "SOlemnSimulator.exe.manifest"
   "SOlemnSimulator.pdb"
   "libSOlemnSimulator.dll.a"
 )
