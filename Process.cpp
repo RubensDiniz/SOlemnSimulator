@@ -43,6 +43,10 @@ public:
         return total_time;
     }
 
+    int get_remaining_time(){
+        return remaining_time;
+    }
+
     int get_id(){
         return process_id;
     }

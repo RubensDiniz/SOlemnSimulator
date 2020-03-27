@@ -10,7 +10,6 @@ protected:
     int quantum;
 
 public:
-
     Simulator(int cores, int qnt){
         processor_cores_number = cores;
         quantum = qnt;

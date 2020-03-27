@@ -9,15 +9,18 @@ protected:
     std::list<Core*> cores;
     static CPU* cpu;
 
-    CPU() {
+    CPU() = default;
 
-    }
 public:
     static CPU* get_cpu() {
         if (cpu == nullptr)
             cpu = new CPU();
         return cpu;
     };
+
+    std::list<Core*> get_cores() {
+        return cores;
+    }
 
     void set_cores(int number) {
         if (!cores.empty())
@@ -37,10 +40,6 @@ public:
             std::cout << "CPU -- Criando Core " << i << std::endl;
             cores.push_back(new Core(i, quantum));
         }
-    }
-
-    std::list<Core*> get_cores() {
-        return cores;
     }
 };
 #endif

@@ -5,7 +5,6 @@
 #define SHORTEST_JOB_FIRST 1
 #define ROUND_ROBIN 2
 
-#include <vector>
 #include <list>
 #include <thread>
 #include <chrono>
@@ -20,6 +19,50 @@ protected:
     static Scheduler* scheduler;
     void (*schedule)(list<Process*>);
     int operation_mode;
+
+    //nome tbd
+    void main_process(){
+        CPU* cpu = CPU::get_cpu();
+        int total_time = 0;
+        auto processes = ready_queue;
+
+        bool queue_has_process = !ready_queue.empty();
+        int core_has_process = 0;
+
+        cout << "ENTRANDO MAIN PROCESS" << endl;
+        //while (queue_has_process || core_has_process > 0) {
+        while(true) { // while !stop_queued
+            cout << endl;
+            cout << "LOOP " << total_time << endl;
+            print_loop_log();
+
+            core_has_process = 0;
+
+            for (auto core : cpu->get_cores()){
+                if (core->has_process()){
+                    auto p = core->get_process();
+                    cout << "CORE " << core->get_id() << " TEM PROCESSO " << p->get_id() << endl;
+
+                    if (core->should_deschedule()){
+                        deschedule_process(core);
+                        if (operation_mode == ROUND_ROBIN && p->get_state() != STATE_TERMINATED) insert_process(p);
+                    } else {
+                        core->tick();
+                    }
+                } else {
+                    schedule_process(core);
+                }
+
+                if (core->has_process())
+                    core_has_process++;
+            }
+
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+            queue_has_process = !ready_queue.empty();
+            total_time++;
+        }
+        cout << "FIM EM " << total_time << endl;
+    }
 
     void schedule_process(Core* core){
         if(ready_queue.empty())
@@ -84,47 +127,26 @@ protected:
         return process;
     }
 
-    //nome tbd
-    void main_process(){
+    void print_loop_log(){
         CPU* cpu = CPU::get_cpu();
 
-        int total_time = 0;
-        auto processes = ready_queue;
-
-        bool queue_has_process = !ready_queue.empty();
-        int core_has_process = 0;
-
-        cout << "ENTRANDO MAIN PROCESS" << endl;
-        //while (queue_has_process || core_has_process > 0) {
-    	while(true){ // while !stop_queued
-            cout << "LOOP " << total_time << endl;
-            core_has_process = 0;
-
-            for (auto core : cpu->get_cores()){
-                if (core->has_process()){
-                    auto p = core->get_process();
-                    cout << "CORE " << core->get_id() << " TEM PROCESSO " << p->get_id() << endl;
-
-                    if (core->should_deschedule()){
-                        deschedule_process(core);
-                        if (operation_mode == ROUND_ROBIN && p->get_state() != STATE_TERMINATED) insert_process(p);
-                    } else {
-                        core->tick();
-                    }
-                } else {
-                    schedule_process(core);
-                }
-
-                if (core->has_process())
-                    core_has_process++;
-            }
-
-            std::this_thread::sleep_for(std::chrono::seconds(1));
-            queue_has_process = !ready_queue.empty();
-            total_time++;
+        cout << "CORES: ";
+        for (auto core : cpu->get_cores()){
+            core->print_core_status();
         }
-        cout << "FIM EM " << total_time << endl;
+
+        cout << endl << "FILA: ";
+        if (!ready_queue.empty()){
+            for (Process* p : ready_queue){
+                cout << "[P" << p->get_id() << ", " << p->get_remaining_time() << "] ";
+            }
+        } else {
+            cout << "[ ] ";
+        }
+        cout << endl;
     }
+
+
 
 public:
     void set_scheduling_algorithm(int mode){

@@ -1,3 +1,3 @@
-/cygdrive/c/Users/samue/Documents/SOlemnSimulator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/cygdrive/c/Users/samue/Documents/SOlemnSimulator/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir
-/cygdrive/c/Users/samue/Documents/SOlemnSimulator/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/cmake-build-debug/CMakeFiles/SOlemnSimulator.dir
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Rubens Diniz/CLionProjects/SOlemnSimulator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
