@@ -18,8 +18,7 @@ protected:
         int min = 5;
         int max = 20;
 
-        while(true) //while !stop_queued
-        {
+        while(true)  { //while !stop_queued
             int time = rand() % (max-min) + min;
             auto proc = create_process(time);
             Scheduler::get_scheduler()->insert_process(proc);
@@ -41,7 +40,6 @@ public:
     	{
             Scheduler::get_scheduler()->insert_process(process);
     	}
-
         return Scheduler::get_scheduler()->run();*/
 
         thread t = thread(&Kernel::create_process_thread, this);
