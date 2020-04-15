@@ -32,7 +32,7 @@ public:
             state = STATE_RUNNING;
         }
 
-        std::cout << "    PROCESS TICK -- PROCESSO " << process_id << " -- TIME: " << old_time << " -> " << remaining_time << std::endl;
+        //std::cout << "    PROCESS TICK -- PROCESSO " << process_id << " -- TIME: " << old_time << " -> " << remaining_time << std::endl;
     }
 
     int get_state(){

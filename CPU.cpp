@@ -27,7 +27,7 @@ public:
             return;
 
         for (int i = 0; i < number; i++) {
-            std::cout << "CPU -- Criando Core " << i << std::endl;
+            //std::cout << "CPU -- Criando Core " << i << std::endl;
             cores.push_back(new Core(i));
         }
     }
@@ -37,7 +37,7 @@ public:
             return;
 
         for (int i = 0; i < number; i++) {
-            std::cout << "CPU -- Criando Core " << i << std::endl;
+            //std::cout << "CPU -- Criando Core " << i << std::endl;
             cores.push_back(new Core(i, quantum));
         }
     }

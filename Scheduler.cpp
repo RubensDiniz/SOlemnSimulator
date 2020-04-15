@@ -29,11 +29,11 @@ protected:
         bool queue_has_process = !ready_queue.empty();
         int core_has_process = 0;
 
-        cout << "ENTRANDO MAIN PROCESS" << endl;
+        //cout << "ENTRANDO MAIN PROCESS" << endl;
         //while (queue_has_process || core_has_process > 0) {
         while(true) { // while !stop_queued
             cout << endl;
-            cout << "LOOP " << total_time << endl;
+            //cout << "LOOP " << total_time << endl;
             print_loop_log();
 
             core_has_process = 0;
@@ -41,11 +41,12 @@ protected:
             for (auto core : cpu->get_cores()){
                 if (core->has_process()){
                     auto p = core->get_process();
-                    cout << "CORE " << core->get_id() << " TEM PROCESSO " << p->get_id() << endl;
+                    //cout << "CORE " << core->get_id() << " TEM PROCESSO " << p->get_id() << endl;
 
                     if (core->should_deschedule()){
                         deschedule_process(core);
                         if (operation_mode == ROUND_ROBIN && p->get_state() != STATE_TERMINATED) insert_process(p);
+                        schedule_process(core);
                     } else {
                         core->tick();
                     }
@@ -65,9 +66,8 @@ protected:
     }
 
     void schedule_process(Core* core){
-        if(ready_queue.empty())
-        {
-            cout << "NAO HA PROCESSO NA READY QUEUE PARA ALOCAR NO CORE " << core->get_id() << endl;
+        if(ready_queue.empty()) {
+            //cout << "NAO HA PROCESSO NA READY QUEUE PARA ALOCAR NO CORE " << core->get_id() << endl;
             return;
         }
 
@@ -91,11 +91,11 @@ protected:
         }
 
         core->set_process(p);
-        cout << "ALOCADO PROCESSO " << p->get_id() << " AO CORE " << core->get_id() << endl;
+        //cout << "ALOCADO PROCESSO " << p->get_id() << " AO CORE " << core->get_id() << endl;
     }
 
     void deschedule_process(Core* core){
-        cout << "DESALOCADO PROCESSO " << core->get_process()->get_id() << " DO CORE " << core->get_id() << endl;
+        //cout << "DESALOCADO PROCESSO " << core->get_process()->get_id() << " DO CORE " << core->get_id() << endl;
         core->set_process(nullptr);
     }
 

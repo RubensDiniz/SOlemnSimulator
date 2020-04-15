@@ -33,16 +33,16 @@ public:
     }
 
     void tick(){
-        std::cout << "CORE TICK: Core " << core_id << " -- ";
+        //std::cout << "CORE TICK: Core " << core_id << " -- ";
         if (current_process == nullptr){
-            std::cout << "SEM PROCESSO" << std::endl;
+            //std::cout << "SEM PROCESSO" << std::endl;
             return;
         }
 
-        std::cout << "CHAMANDO TICK DO PROCESSO " << current_process->get_id() << std::endl;
+        //std::cout << "CHAMANDO TICK DO PROCESSO " << current_process->get_id() << std::endl;
         if (quantum >= 0) remaining_quantum--;
         current_process->tick();
-        if (quantum >= 0) std::cout << "    QUANTUM: " << (remaining_quantum + 1) << " -> " << remaining_quantum << std::endl;
+        //if (quantum >= 0) std::cout << "    QUANTUM: " << (remaining_quantum + 1) << " -> " << remaining_quantum << std::endl;
     }
 
     void print_core_status(){

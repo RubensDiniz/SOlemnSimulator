@@ -27,8 +27,9 @@ public:
         int algorithm = ROUND_ROBIN;
 
         scheduling_algorithm(algorithm);
+
         if (algorithm == ROUND_ROBIN){
-            CPU::get_cpu()->set_cores(processor_cores_number, quantum); // TODO alterar quantum na linha 63?
+            CPU::get_cpu()->set_cores(processor_cores_number, quantum); // alterar quantum na linha 66~
         } else {
             CPU::get_cpu()->set_cores(processor_cores_number);
         }
@@ -47,14 +48,14 @@ public:
         Kernel::get_instance()->create_process(time);
     }
 
-    void batch_process_init(int amount){
-        int min = 5;
-        int max = 20;
-
-        for (int i = 0; i < amount; ++i) {
-            create_random_process(min, max);
-        }
-    }
+//    void batch_process_init(int amount){
+//        int min = 5;
+//        int max = 20;
+//
+//        for (int i = 0; i < amount; ++i) {
+//            create_random_process(min, max);
+//        }
+//    }
 };
 
 CPU* CPU::cpu = nullptr;

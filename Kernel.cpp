@@ -51,7 +51,7 @@ public:
         Process* proc = new Process(id, total_time);
         process_control_table.push_back(proc);
 
-        cout << "CRIADO PROCESSO " << id << " -- TOTAL TIME: " << total_time << endl;
+        //cout << "CRIADO PROCESSO " << id << " -- TOTAL TIME: " << total_time << endl;
     	
         return proc;
     }
