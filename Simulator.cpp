@@ -3,6 +3,10 @@
 #define SIMULATOR_CPP
 #include "Kernel.cpp"
 
+#define FIRST_FIT 0
+#define BEST_FIT 1
+#define QUICK_FIT 2
+
 class Simulator{
 protected:
     Kernel* kernel;
@@ -25,6 +29,8 @@ public:
         //int algorithm = FIFO_SCHEDULER;
         //int algorithm = SHORTEST_JOB_FIRST;
         int algorithm = ROUND_ROBIN;
+
+        //TODO ----- setar algoritmo de alocação de memória!
 
         scheduling_algorithm(algorithm);
 
