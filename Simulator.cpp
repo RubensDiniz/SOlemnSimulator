@@ -12,12 +12,18 @@ protected:
     Kernel* kernel;
     int processor_cores_number;
     int quantum;
+    int total_installed_memory;     // quantidade total de memória RAM instalada no sistema. TODO passar isso p/ manager?
+    int number_quick_lists;         // quantidade de listas a serem criadas pelo algoritmo quick_fit TODO passar isso p/ manager?
+    int number_memory_calls;        // quantidade de requisições de memória que o quick fit deve acumular em sua tabela de estatísticas antes de construir suas listas TODO passar isso p/ manager?
 
 public:
-    Simulator(int cores, int qnt){
-        processor_cores_number = cores;
-        quantum = qnt;
+    Simulator(int pcn, int q, int tim, int nql, int nmc){
+        processor_cores_number = pcn;
+        quantum = q;
         kernel = Kernel::get_instance();
+        total_installed_memory = tim;
+        number_quick_lists = nql;
+        number_memory_calls = nmc;
         //CPU::get_cpu()->set_cores(cores);
     }
 
@@ -25,12 +31,21 @@ public:
     	Kernel::get_instance()->scheduling_algorithm(i);
     }
 
+    void memory_allocation_algorithm(int i){
+        /*
+        algoritmo de alocação de memória a ser usado pelo memory_manager,
+        deve ser selecionado e definido a partir dessa classe.
+         */
+        // TODO memoryManager singleton?
+        //something something MemoryManager::get_instance()->set_allocation_algorithm(i);
+    }
+
     void run(){
         //int algorithm = FIFO_SCHEDULER;
         //int algorithm = SHORTEST_JOB_FIRST;
         int algorithm = ROUND_ROBIN;
 
-        //TODO ----- setar algoritmo de aloca��o de mem�ria!
+        //TODO ----- setar algoritmo de aloca��o de mem�ria!
 
         scheduling_algorithm(algorithm);
 
@@ -55,6 +70,7 @@ public:
     }
 
 //    void batch_process_init(int amount){
+//        TODO reimplementar? criar processos que já estarão lá no início da aplicação
 //        int min = 5;
 //        int max = 20;
 //
@@ -69,15 +85,16 @@ Kernel* Kernel::instance = nullptr;
 Scheduler* Scheduler::scheduler = nullptr;
 
 int main(){
-    Simulator* sim = new Simulator(4,10);
-
-    /*thread t = sim->run();
-
-    t.join();*/
+    Simulator* sim = new Simulator(4,10); // TODO preencher os outros parâmetros...
 
     sim->run();
 
     cout << "End" << endl;
 }
+
+/*
+thread t = sim->run();
+t.join();
+ */
 
 #endif

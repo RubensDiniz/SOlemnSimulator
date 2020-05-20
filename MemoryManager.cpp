@@ -7,115 +7,118 @@
 #include <queue>
 
 class MemoryManager {
+    //TODO singleton?
+
 protected:
-	//lista de MemoryBlock chamada memory
-    MemoryBlock* free_blocks_list;
+    std::list<MemoryBlock*> memory;     // RAM instalada no sistema TODO Ã© assim mesmo que eu faÃ§o uma lista?
+    MemoryBlock* free_blocks_list;      // Primeiro bloco de memÃ³ria livre
     int allocation_algorithm;
     int total_memory;
     int memory_overhead;
+    // ??? statistics_table             // TODO "tabela de estatÃ­sticas" + get/set? - ver item N
+    // ??? quick_fit_free_blocks        // TODO "listas especializadas" + get/set? - ver item O
+    int number_quick_lists;
+    int minimum_amount_calls;
 
 public:
 
+    //classe que implementa o gerenciador de memÃ³ria, suas estruturas de dados e algoritmos
     MemoryManager(){
         
     }
     
-    MemoryBlock* malloc(int requested_memory){
+    MemoryBlock* malloc(int requested_memory){ //TODO MB* -> int?
+        /*
+        mÃ©todo que simula uma chamada de sistema por memÃ³ria, tem como
+        parÃ¢metro um inteiro que representa a quantidade de memÃ³ria solicitada em
+        bytes. Tem como retorno o endereÃ§o do bloco de memÃ³ria que foi usado para
+        satisfazer a chamada. Chama um algoritmo de alocaÃ§Ã£o de memÃ³ria para
+        efetuar a alocaÃ§Ã£o de um bloco
+         */
         return nullptr;
     }
 
-    MemoryBlock* free(MemoryBlock* block){
-        //void ou não? por mim tanto faz, imaginei como um list.pop();
+    MemoryBlock* free(MemoryBlock* block){ //TODO MB* -> int?
+        //void ou nao? por mim tanto faz, imaginei como um list.pop();
+        /*
+        simula uma chamada de sistema solicitando a desalocaÃ§Ã£o de um dado
+        endereÃ§o de memÃ³ria (parÃ¢metro). O bloco Ã© marcado como livre por meio da
+        sua inserÃ§Ã£o na lista de blocos livres.
+         */
     }    
 
     void set_allocation_algorithm(int algorithm){
         allocation_algorithm = algorithm;
     }
 
-    int get_total_memory() {
-	    
+    bool check_free_memory() {
+        /*
+        Checa se Ã© possÃ­vel resolver uma requisiÃ§Ã£o de memÃ³ria por X bytes.
+        Leva em consideraÃ§Ã£o a memÃ³ria numericamente disponÃ­vel e a disposiÃ§Ã£o
+        dos blocos (fragmentaÃ§Ã£o externa).
+         */
+        return false;
     }
-	
-	int get_memory_overhead() {
-	    
+
+    int first_fit(int requested_memory) {//TODO int?
+        /*
+        implementa first_fit e retorna um inteiro que representa o endereÃ§o (na lista?) do bloco
+        que foi usado para satisfazer a chamada por memÃ³ria.
+         */
+        return 0;
+    }
+
+    int best_fit(int requested_memory) { //TODO int?
+        /*
+        implementa best_fit e retorna um inteiro que representa o endereÃ§o (na lista?) do bloco
+        que foi usado para satisfazer a chamada por memÃ³ria.
+         */
+        return 0;
+    }
+
+    int quick_fit(int requested_memory) { //TODO int?
+        /*
+        implementa quick_fit e retorna um inteiro que representa o endereÃ§o (na lista?) do bloco
+        que foi usado para satisfazer a chamada por memÃ³ria.
+         */
+        return 0;
+    }
+
+    int get_total_memory() {
+        return total_memory;
+    }
+
+    int get_memory_overhead() {
+        return memory_overhead;
     }
 
     int get_available_memory() {
         return get_total_memory() - (get_memory_overhead() + get_occupied_memory());
     }
 
-	int get_occupied_memory() {
-	    
+    int get_occupied_memory() {
+        /*
+        total de memÃ³ria ocupada pelos processos, nÃ£o leva em
+        consideraÃ§Ã£o o overhead
+         */
+
+        // TODO a gente percorre o "memory" e vai checando? sepÃ¡ faz um int que fica atualizando...
     }
 
+    int get_number_quick_lists() {
+        return number_quick_lists;
+    }
+    void set_number_quick_lists(int n) {
+        number_quick_lists = n;
+    }
+
+    int get_minimum_amount_calls() {
+        return minimum_amount_calls;
+    }
+    void set_minimum_amount_calls(int m) {
+        minimum_amount_calls = m;
+    }
 }
-
-/*
------memory_manager: classe que implementa o gerenciador de memória, suas estruturas
-de dados e algoritmos:
-
-memory: estrutura de dados usada para representar a memória RAM instalada
-no sistema, é composta por memory_blocks.
-
-free_blocks_list: ponteiro para o primeiro bloco de memória livre, o qual deve
-fazer parte da lista de blocos livres.
-
-malloc: método que simula uma chamada de sistema por memória, tem como
-parâmetro um inteiro que representa a quantidade de memória solicitada em
-bytes. Tem como retorno o endereço do bloco de memória que foi usado para
-satisfazer a chamada. Chama um algoritmo de alocação de memória para
-efetuar a alocação de um bloco.
-
-free: simula uma chamada de sistema solicitando a desalocação de um dado
-endereço de memória (parâmetro). O bloco é marcado como livre por meio da
-sua inserção na lista de blocos livres.
-
-set_allocation_algorithm: método que seleciona o algoritmo de alocação de
-memória a ser usado.
-
-total_memory: quantidade de memória RAM instalada no sistema em bytes.
-
-memory_overhead: quantidade de memória utilizada pelo próprio
-memory_manager.
-
-available_memory: quantidade de memória livre disponível para os processos
-num dado instante de tempo. available = total - (occupied + overhead).
-
-occupied_memory: total de memória ocupada pelos processos, não leva em
-consideração o overhead.
-
-check_free_memory: checa se é possível resolver uma requisição de memória
-por X bytes. Leva em consideração a memória numericamente disponível e a
-disposição dos blocos (fragmentação externa).
-
-first_fit: método que implementa o algoritmo de alocação de memória first fit.
-Recebe um inteiro representando a quantidade de memória desejada e retorna
-um inteiro que representa o endereço do bloco que foi usado para satisfazer a
-chamada por memória.
-
-best_fit: método que implementa o algoritmo de alocação de memória best fit.
-Recebe um inteiro representando a quantidade de memória desejada e retorna
-um inteiro que representa o endereço do bloco que foi usado para satisfazer a
-chamada por memória.
-
-quick_fit: método que implementa o algoritmo de alocação de memória quick fit.
-Recebe um inteiro representando a quantidade de memória desejada e retorna
-um inteiro que representa o endereço do bloco que foi usado para satisfazer a
-chamada por memória.
-statistics_table: tabela de estatísticas usada pelo algoritmo quick fit, cada linha
-contém o tamanho da requisição de memória e a quantidade de vezes que ela
-aconteceu. A tabela é ordenada pelas ocorrências.
-
-quick_fit_free_blocks: listas especializadas de blocos livres gerenciadas pelo
-algoritmo quick fit.
-
-number_quick_lists: quantidade de listas a serem criadas pelo algoritmo de
-alocação de memória quick fit.
-
-minimum_amount_calls: quantidade mínima de requisições de memória que o
-algoritmo quick fit deve esperar acontecer antes de criar suas listas de blocos
-livres.
-*/
 
 //#include "MemoryBlock.cpp"
 //#include <list>

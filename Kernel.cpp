@@ -36,12 +36,6 @@ public:
     }
 
     thread run(){
-    	/*for(auto process : process_control_table)
-    	{
-            Scheduler::get_scheduler()->insert_process(process);
-    	}
-        return Scheduler::get_scheduler()->run();*/
-
         thread t = thread(&Kernel::create_process_thread, this);
         return t;
     }
@@ -56,11 +50,11 @@ public:
         return proc;
     }
 
-    void kill_process(Process* p){
-        p->terminate();
+    void scheduling_algorithm(int i){
+        Scheduler::get_scheduler()->set_scheduling_algorithm(i);
     }
 
-    Process* get_process(int id){
+    Process* get_process_by_id(int id){
         if (id < process_control_table.size()){
             return process_control_table[id];
         } else {
@@ -68,13 +62,36 @@ public:
         }
     }
 
-    //Process* run_process(Process* p){
-    //    //Ver se é isso mesmo
-    //    //p->tick();
-    //}
+    void kill_process(Process* p){
+        p->terminate();
+    }
 
-    void scheduling_algorithm(int i){
-        Scheduler::get_scheduler()->set_scheduling_algorithm(i);
+    MemoryBlock* memory_allocation(int requested_memory){
+        /*
+        método que simula uma chamada de sistema por memória, tem como parâmetro um
+        inteiro que representa a quantidade de memória solicitada em bytes. Tem como
+        retorno o endereço do bloco de memória que foi usado para satisfazer a chamada
+         */
+        return NULL;
+    }
+
+    void free_memory(int memory_address){ //TODO int?
+        /*
+        simula uma chamada de sistema solicitando a desalocação de
+        um dado endereço de memória (parâmetro).
+         */
     }
 };
+
+/*
+dentro do run, old:
+for(auto process : process_control_table) {
+    Scheduler::get_scheduler()->insert_process(process);
+}
+return Scheduler::get_scheduler()->run();*/
+
+//Process* run_process(Process* p){
+//    //Ver se é isso mesmo
+//    //p->tick();
+//}
 #endif

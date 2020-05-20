@@ -95,7 +95,7 @@ protected:
     }
 
     void deschedule_process(Core* core){
-        //cout << "DESALOCADO PROCESSO " << core->get_process()->get_id() << " DO CORE " << core->get_id() << endl;
+        //cout << "DESALOCADO PROCESSO " << core->get_process_by_id()->get_id() << " DO CORE " << core->get_id() << endl;
         core->set_process(nullptr);
     }
 
