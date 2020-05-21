@@ -4,9 +4,11 @@
 #include "Scheduler.cpp"
 #include "Process.cpp"
 
+using namespace std;
+
 class Kernel{
 protected:
-    std::vector<Process*> process_control_table; //TODO
+    vector<Process*> process_control_table;
 
     static Kernel* instance;
 
@@ -18,12 +20,12 @@ protected:
         int min = 5;
         int max = 20;
 
-        while(true)  { //while !stop_queued
+        while(true) { //while !stop_queued
             int time = rand() % (max-min) + min;
             auto proc = create_process(time);
             Scheduler::get_scheduler()->insert_process(proc);
             //cout << "KERNEL: PROCESSO CRIADO COM ID: " << proc->get_id() << ", TOTAL TIME: " << time << endl;
-            std::this_thread::sleep_for(std::chrono::seconds(1));
+            this_thread::sleep_for(chrono::seconds(1));
         }
     }
 
@@ -42,7 +44,7 @@ public:
 
     Process* create_process(int total_time){
         int id = process_control_table.size();
-        Process* proc = new Process(id, total_time);
+        Process* proc = new Process(id, total_time); // TODO mais parâmetros
         process_control_table.push_back(proc);
 
         //cout << "CRIADO PROCESSO " << id << " -- TOTAL TIME: " << total_time << endl;
@@ -75,11 +77,13 @@ public:
         return NULL;
     }
 
-    void free_memory(int memory_address){ //TODO int?
+    void free_memory(MemoryBlock* address){
         /*
         simula uma chamada de sistema solicitando a desalocação de
         um dado endereço de memória (parâmetro).
          */
+
+        //TODO delete?
     }
 };
 

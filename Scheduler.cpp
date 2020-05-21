@@ -58,7 +58,7 @@ protected:
                     core_has_process++;
             }
 
-            std::this_thread::sleep_for(std::chrono::seconds(1));
+            this_thread::sleep_for(chrono::seconds(1)); //TODO tinha uns std:: por aqui, se quebrar é isso maybe
             queue_has_process = !ready_queue.empty();
             total_time++;
         }

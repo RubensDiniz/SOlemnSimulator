@@ -1,7 +1,8 @@
-#include <algorithm>
 #ifndef SIMULATOR_CPP
 #define SIMULATOR_CPP
+#include <algorithm>
 #include "Kernel.cpp"
+#include "MemoryManager.cpp"
 
 #define FIRST_FIT 0
 #define BEST_FIT 1
@@ -36,8 +37,7 @@ public:
         algoritmo de alocação de memória a ser usado pelo memory_manager,
         deve ser selecionado e definido a partir dessa classe.
          */
-        // TODO memoryManager singleton?
-        //something something MemoryManager::get_instance()->set_allocation_algorithm(i);
+        // TODO something something MemoryManager::get_instance()->set_allocation_algorithm(i);
     }
 
     void run(){
@@ -45,9 +45,8 @@ public:
         //int algorithm = SHORTEST_JOB_FIRST;
         int algorithm = ROUND_ROBIN;
 
-        //TODO ----- setar algoritmo de aloca��o de mem�ria!
-
         scheduling_algorithm(algorithm);
+        //TODO ----- setar algoritmo de alocação de memória! -> memory_allocation_algorithm
 
         if (algorithm == ROUND_ROBIN){
             CPU::get_cpu()->set_cores(processor_cores_number, quantum); // alterar quantum na linha 66~
@@ -83,6 +82,7 @@ public:
 CPU* CPU::cpu = nullptr;
 Kernel* Kernel::instance = nullptr;
 Scheduler* Scheduler::scheduler = nullptr;
+MemoryManager* MemoryManager::instance = nullptr;
 
 int main(){
     Simulator* sim = new Simulator(4,10); // TODO preencher os outros parâmetros...
