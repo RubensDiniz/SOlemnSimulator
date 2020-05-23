@@ -10,17 +10,29 @@ protected:
 
 public:
     
-    MemoryBlock() {
+    MemoryBlock(int block_size) {
+		total_block_size = block_size;
         //TODO fazer um construtor não vazio
     }
+
+	void occupy(int size) {
+		occupied_size = size;
+	}
+
+	void free() {
+		occupied_size = 0;
+	}
 
 	void set_next_free_block(MemoryBlock* block) {
 		next_free_block = block;
     }
-
 	MemoryBlock* get_next_free_block() const {
 		return next_free_block;
     }
+
+	int get_total_block_size() const {
+		return total_block_size;
+	}
 	
 };
 

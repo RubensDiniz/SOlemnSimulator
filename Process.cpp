@@ -48,6 +48,7 @@ public:
 
     void generate_random_static_memory_call(){
         //TODO chamam o malloc do memory manager, retorna endereço (ponteiro) do bloco, de 1 a 4096 bytes
+
         /*
         método que gera uma chamada de sistema por memória alocada estaticamente.
         Deve ser gerada pelo menos uma chamada antes do processo ser escalonado.

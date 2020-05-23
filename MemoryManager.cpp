@@ -2,8 +2,10 @@
 #define MEMORYMANAGER_CPP
 #include "MemoryBlock.cpp"
 #include <list>
+#include <iostream>
 #include <queue>
 #include <map>
+#include <tuple>
 
 #define FIRST_FIT 0
 #define BEST_FIT 1
@@ -22,6 +24,7 @@ protected:
     int memory_overhead;
     int occupied_memory;                // TODO inicializar ela como total_memory e mudar dinamicamente
     map<int, int> statistics_table;     // TODO "tabela de estatísticas" + get/set? - ver item N / tamanho da requisição x quantia que acontece
+
     // ??? quick_fit_free_blocks;       // TODO "listas especializadas" + get/set? - ver item O / lista de listas?
     int number_quick_lists;
     int minimum_amount_calls;
@@ -29,8 +32,14 @@ protected:
 public:
 
     //classe que implementa o gerenciador de memória, suas estruturas de dados e algoritmos
-    MemoryManager(){
+    MemoryManager(){ }
 
+    MemoryManager set_algorithm(int algorithm) {
+        this->allocation_algorithm = algorithm;
+    }
+
+    MemoryManager set_total_memory(int total_memory) {
+        this->total_memory = total_memory;
     }
 
     static MemoryManager* get_instance(){
@@ -47,11 +56,34 @@ public:
         satisfazer a chamada. Chama um algoritmo de alocação de memória para
         efetuar a alocação de um bloco
          */
+		auto block = (MemoryBlock*)nullptr;
+
+		switch (allocation_algorithm) {
+			case FIRST_FIT:
+				block = first_fit(requested_memory);
+				break;
+			case BEST_FIT:
+				block = best_fit(requested_memory);
+				break;
+			case QUICK_FIT:
+				block = quick_fit(requested_memory);
+				break;
+		}
+
+        if (block == nullptr) {
+            if (requested_memory > total_memory) {
+                cout << "Memoria insuficiente" << endl;
+                return nullptr;
+            }
+            else {
+                return new MemoryBlock(requested_memory);
+            }
+        }
+
         return nullptr;
     }
 
-    MemoryBlock* free(MemoryBlock* block) {
-        //void ou nao? por mim tanto faz, imaginei como um list.pop();
+    MemoryBlock* free(MemoryBlock* freed_block) {
 
         /*
         simula uma chamada de sistema solicitando a desalocação de um dado
@@ -59,44 +91,94 @@ public:
         sua inserção na lista de blocos livres.
          */
 
-        return nullptr;
+		auto block = free_blocks_list;
+
+		while (block != nullptr) {
+			if (block->get_next_free_block() == nullptr) {
+				block->set_next_free_block(freed_block);
+				freed_block->free();
+				freed_block->set_next_free_block(nullptr);
+				return freed_block;
+			} else {
+				block = block->get_next_free_block();
+			}
+		}
+
+		return nullptr;
     }    
 
     void set_allocation_algorithm(int algorithm){
         allocation_algorithm = algorithm;
     }
 
-    bool check_free_memory() {
+    bool check_free_memory(int block_size) {
         /*
         Checa se é possível resolver uma requisição de memória por X bytes.
         Leva em consideração a memória numericamente disponível e a disposição
         dos blocos (fragmentação externa).
          */
+
         return false;
     }
 
-    int first_fit(int requested_memory) {
+    MemoryBlock* first_fit(int requested_memory) {
         /*
         implementa first_fit e retorna um inteiro que representa o endereço (na lista) do bloco
         que foi usado para satisfazer a chamada por memória. (pode retornar um ponteiro MemoryBlock* iirc)
          */
-        return 0;
+        auto prevBlock = (MemoryBlock*)nullptr;
+        auto block = free_blocks_list;
+
+		while (block != nullptr) {
+            if (block->get_total_block_size() >= requested_memory) {
+                prevBlock->set_next_free_block(block->get_next_free_block());
+                return block;
+            }
+
+            prevBlock = block;
+            block = block->get_next_free_block();
+		}
+
+        return nullptr;
     }
 
-    int best_fit(int requested_memory) {
+    MemoryBlock* best_fit(int requested_memory) {
         /*
         implementa best_fit e retorna um inteiro que representa o endereço (na lista) do bloco
         que foi usado para satisfazer a chamada por memória. (pode retornar um ponteiro MemoryBlock* iirc)
          */
-        return 0;
+
+        auto best_previous = (MemoryBlock*)nullptr;
+        auto best_block = (MemoryBlock*)nullptr;
+
+        auto prevBlock = (MemoryBlock*)nullptr;
+        auto block = free_blocks_list;
+
+        while (block != nullptr) {
+            if (block->get_total_block_size() >= requested_memory) {
+                if (best_block == nullptr || best_block->get_total_block_size() > block->get_total_block_size()) {
+                    best_block = block;
+                    best_previous = prevBlock;
+                }
+            }
+
+            prevBlock = block;
+            block = block->get_next_free_block();
+        }
+
+        if (best_previous != nullptr) {
+            best_previous->set_next_free_block(best_block->get_next_free_block());
+        }
+
+        return best_block;
     }
 
-    int quick_fit(int requested_memory) {
+    MemoryBlock* quick_fit(int requested_memory) {
         /*
         implementa quick_fit e retorna um inteiro que representa o endereço (na lista) do bloco
         que foi usado para satisfazer a chamada por memória. (pode retornar um ponteiro MemoryBlock* iirc)
          */
-        return 0;
+        return nullptr;
     }
 
     int get_total_memory() {
@@ -157,7 +239,7 @@ NAO EXISTE EXECUCAO DE PROCESSO SEM OS DADOS DELE ESTA NA RAM - ENFASE
 PQ a inicializacao do SO é lenta? Pois existe um ciclo de ficar sempre lendo/escrevendo no HD e lendo/escrevendo na RAM, como melhorar? Dando upgrade na quantidade de memoria RAM e/ou colcoando um SSD.
 
 
-Thread pro gerenciador de memoria pode ajudar TODO
+Thread pro gerenciador de memoria pode ajudar TODO----------------------------------------------
 
 Gerenciador de memoria: responsavel por alocar e desalocar os blocos( Contem uma lista de blocos livres)
 
