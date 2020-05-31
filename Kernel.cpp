@@ -3,17 +3,20 @@
 #include <vector>
 #include "Scheduler.cpp"
 #include "Process.cpp"
+#include "MemoryManager.cpp"
 
 using namespace std;
 
 class Kernel{
 protected:
     vector<Process*> process_control_table;
+    MemoryManager* memory_manager;
 
     static Kernel* instance;
 
     Kernel(){
-    	
+        memory_manager = new MemoryManager();
+        memory_manager->set_algorithm(FIRST_FIT);
     }
 
     void create_process_thread(){
@@ -74,7 +77,8 @@ public:
         inteiro que representa a quantidade de memória solicitada em bytes. Tem como
         retorno o endereço do bloco de memória que foi usado para satisfazer a chamada
          */
-        return NULL;
+        //return NULL;
+        return memory_manager->malloc(requested_memory);
     }
 
     void free_memory(MemoryBlock* address){
@@ -84,6 +88,7 @@ public:
          */
 
         //TODO delete?
+        memory_manager->free(address);
     }
 };
 

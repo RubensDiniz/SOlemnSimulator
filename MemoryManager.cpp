@@ -7,6 +7,11 @@
 #include <map>
 #include <tuple>
 
+#define LOGGING true
+//#define LOGGING false
+
+#define BLOCK_SIZE 16
+
 #define FIRST_FIT 0
 #define BEST_FIT 1
 #define QUICK_FIT 2
@@ -32,7 +37,12 @@ protected:
 public:
 
     //classe que implementa o gerenciador de memória, suas estruturas de dados e algoritmos
-    MemoryManager(){ }
+    MemoryManager()
+    {
+        total_memory = 1024*1024;
+        memory_overhead = 0;
+        occupied_memory = 0;
+    }
 
     MemoryManager set_algorithm(int algorithm) {
         this->allocation_algorithm = algorithm;
@@ -58,11 +68,25 @@ public:
          */
 		auto block = (MemoryBlock*)nullptr;
 
+        if (LOGGING) {
+            cout << "MALLOC chamado, alocando " << requested_memory << " bytes" << endl;
+        }
+
+        cout << "Chamando método ";
+    	
 		switch (allocation_algorithm) {
 			case FIRST_FIT:
+				if (LOGGING)
+				{
+                    cout << "FIRST_FIT" << endl;
+				}
 				block = first_fit(requested_memory);
 				break;
 			case BEST_FIT:
+                if (LOGGING)
+                {
+                    cout << "BEST_FIT" << endl;
+                }
 				block = best_fit(requested_memory);
 				break;
 			case QUICK_FIT:
@@ -70,16 +94,24 @@ public:
 				break;
 		}
 
+    	
         if (block == nullptr) {
-            if (requested_memory > total_memory) {
+            if (check_free_memory(requested_memory)) {
                 cout << "Memoria insuficiente" << endl;
                 return nullptr;
             }
             else {
+            	if (LOGGING)
+            	{
+                    cout << "Novo bloco de tamanho " << requested_memory << " alocado." << endl;
+            	}
+                occupied_memory += requested_memory;
+                memory_overhead += BLOCK_SIZE;
                 return new MemoryBlock(requested_memory);
             }
         }
 
+        cout << "Erro." << endl;
         return nullptr;
     }
 
@@ -91,12 +123,15 @@ public:
         sua inserção na lista de blocos livres.
          */
 
+        freed_block->free();
 		auto block = free_blocks_list;
 
-		while (block != nullptr) {
+    	if (block == nullptr)
+    	{
+            block = freed_block;
+    	} else while (block != nullptr) {
 			if (block->get_next_free_block() == nullptr) {
 				block->set_next_free_block(freed_block);
-				freed_block->free();
 				freed_block->set_next_free_block(nullptr);
 				return freed_block;
 			} else {
@@ -104,7 +139,7 @@ public:
 			}
 		}
 
-		return nullptr;
+		return freed_block;
     }    
 
     void set_allocation_algorithm(int algorithm){
@@ -118,7 +153,7 @@ public:
         dos blocos (fragmentação externa).
          */
 
-        return false;
+        return get_available_memory() >= block_size;
     }
 
     MemoryBlock* first_fit(int requested_memory) {
@@ -131,7 +166,10 @@ public:
 
 		while (block != nullptr) {
             if (block->get_total_block_size() >= requested_memory) {
-                prevBlock->set_next_free_block(block->get_next_free_block());
+            	if (prevBlock != nullptr)
+            	{
+                    prevBlock->set_next_free_block(block->get_next_free_block());
+            	}
                 return block;
             }
 
@@ -198,8 +236,7 @@ public:
         total de memória ocupada pelos processos, não leva em
         consideração o overhead
          */
-
-        // TODO atualizar variável constantemente... iniciar ela como == total memory?
+        return occupied_memory;
     }
 
     int get_number_quick_lists() {
@@ -215,6 +252,8 @@ public:
     void set_minimum_amount_calls(int m) {
         minimum_amount_calls = m;
     }
+
+	log
 };
 
 #endif
